@@ -92,6 +92,91 @@ class Program
         ArmstrongSonTekshirish();
         SifatliBoluvchilarHisoblash();
         #endregion
+
+        #region Basics.Tanlash bo'limi uchun 2-amaliy vazifa
+        //Task_1 Vaqt kalkulyatori
+        Console.Write("Daqiqalar sonini kiriting: ");
+        int totalMinutes = int.Parse(Console.ReadLine());
+
+        int hours = totalMinutes / 60; 
+        int minutes = totalMinutes % 60; 
+
+        Console.WriteLine($"{hours}:{minutes:D2}");
+
+        //Task_2 Yosh toifasini aniqlash
+        Console.Write("Yoshingizni kiriting: ");
+        int yosh = int.Parse(Console.ReadLine());
+        string toifa;
+
+        if (yosh >= 0 && yosh <= 12)
+        {
+            toifa = "bola";
+        }
+        else if (yosh >= 13 && yosh <= 19)
+        {
+            toifa = "o'smir";
+        }
+        else if (yosh >= 20 && yosh <= 59)
+        {
+            toifa = "kattalar";
+        }
+        else if (yosh >= 60)
+        {
+            toifa = "katta";
+        }
+        else
+        {
+            toifa = "Noto'g'ri yosh";
+        }
+
+        Console.WriteLine($"Siz {toifa} toifasiga kirasiz.");
+
+        //Task_3  O'rtacha ballni hisoblash
+        Console.Write("Birinchi fan bo'yicha bahoni kiriting (0-100): ");
+        int baho1 = int.Parse(Console.ReadLine());
+
+        Console.Write("Ikkinchi fan bo'yicha bahoni kiriting (0-100): ");
+        int baho2 = int.Parse(Console.ReadLine());
+
+        Console.Write("Uchinchi fan bo'yicha bahoni kiriting (0-100): ");
+        int baho3 = int.Parse(Console.ReadLine());
+
+        double ortachaBall = (baho1 + baho2 + baho3) / 3.0;
+
+        string natijaBall = (ortachaBall >= 80 && ortachaBall <= 100) ? "A'lo" :
+                        (ortachaBall >= 60 && ortachaBall <= 79) ? "Yaxshi" :
+                        (ortachaBall >= 40 && ortachaBall <= 59) ? "Qoniqarli" :
+                        (ortachaBall < 40) ? "Qoniqarsiz" : "Noto'g'ri baholar kiritildi";
+
+        Console.WriteLine($"O'rtacha ball: {ortachaBall:F2}");
+        Console.WriteLine($"Sizning baho toifangiz: {natijaBall}");
+
+        //Task_4  "Raqamni toping" o'yini
+        Random random = new Random();
+        int sirliRaqam = random.Next(1, 101); // 1 dan 100 gacha tasodifiy son
+        int taxmin;
+        bool topildi = false;
+
+        Console.WriteLine("1 dan 100 gacha bo'lgan sirli raqamni toping!");
+
+        while (!topildi)
+        {
+            Console.Write("Raqamni kiriting: ");
+            taxmin = int.Parse(Console.ReadLine());
+
+            string natija_ = taxmin < sirliRaqam
+                ? "Sirli raqam ko'proq."
+                : taxmin > sirliRaqam
+                    ? "Sirli raqam kamroq."
+                    : "Tabriklaymiz! Siz sirli raqamni topdingiz!";
+
+            Console.WriteLine(natija_);
+
+            topildi = taxmin == sirliRaqam;
+        }
+
+
+        #endregion
     }
 
     #region Basic. Ketma-ketlik boʻlimi uchun 3-amaliy vazifa
